@@ -32,6 +32,7 @@ import (
 	"reflect"
 	"regexp"
 
+	"github.com/glenn-brown/golang-pkg-pcre/src/pkg/pcre"
 	"github.com/xeipuuv/gojsonreference"
 )
 
@@ -518,14 +519,15 @@ func (d *Schema) parseSchema(documentNode interface{}, currentSchema *subSchema)
 
 	if existsMapKey(m, KEY_PATTERN) {
 		if isKind(m[KEY_PATTERN], reflect.String) {
-			regexpObject, err := regexp.Compile(m[KEY_PATTERN].(string))
+			regexpObject, err := pcre.Compile(m[KEY_PATTERN].(string), pcre.JAVASCRIPT_COMPAT|pcre.UTF8)
 			if err != nil {
 				return errors.New(formatErrorDescription(
 					Locale.MustBeValidRegex(),
 					ErrorDetails{"key": KEY_PATTERN},
 				))
 			}
-			currentSchema.pattern = regexpObject
+			currentSchema.pattern = &regexpObject
+			currentSchema.patternString = m[KEY_PATTERN].(string)
 		} else {
 			return errors.New(formatErrorDescription(
 				Locale.MustBeOfA(),
