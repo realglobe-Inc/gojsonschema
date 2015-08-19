@@ -4,7 +4,8 @@
 
 ## Description
 
-An implementation of JSON Schema, based on IETF's draft v4 - Go language
+An implementation of JSON Schema, based on IETF's draft v4 with PCRE backend. - Go language  
+This repository is fork of [github.com/xeipuuv/gojsonschema](https://github.com/xeipuuv/gojsonschema) which the difference in backend of regexp library.
 
 References :
 
@@ -15,7 +16,7 @@ References :
 ## Installation
 
 ```
-go get github.com/xeipuuv/gojsonschema
+go get github.com/realglobe-Inc/gojsonschema
 ```
 
 Dependencies :
@@ -33,7 +34,7 @@ package main
 
 import (
     "fmt"
-    "github.com/xeipuuv/gojsonschema"
+    "github.com/realglobe-Inc/gojsonschema"
 )
 
 func main() {
