@@ -23,6 +23,7 @@ Dependencies :
 * [github.com/xeipuuv/gojsonpointer](https://github.com/xeipuuv/gojsonpointer)
 * [github.com/xeipuuv/gojsonreference](https://github.com/xeipuuv/gojsonreference)
 * [github.com/stretchr/testify/assert](https://github.com/stretchr/testify#assert-package)
+* [github.com/glenn-brown/golang-pkg-pcre](https://github.com/glenn-brown/golang-pkg-pcre)
 
 ## Usage
 
